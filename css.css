@@ -1,0 +1,85 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft YaHei",微软雅黑;
+}
+.header {
+	width:100%;
+	height: 300px;
+	background: url('img/bg.jpg') no-repeat 0 0;
+	background-size: 100%;
+
+}
+.header .wrapper{
+	width:100%;
+	height: 300px;
+	background: rgba(0,0,0,0.3);
+	position: relative;
+}
+.header .wrapper .pic{
+	height: 120px;
+	width: 120px;
+	border-radius:120px; 
+	position: absolute;
+	left: 35%;
+	top: 32%;
+	opacity: 1;
+}
+.header .wrapper .text{
+	height: 120px;
+	width: 200px;
+	color: white;
+	left: 35%;
+    top: 32%;
+    position: absolute;
+    padding-left:135px; 
+}
+.header .wrapper .text .t-content{
+	font-size: 18px;
+	margin-top: 14px;
+}
+.archive{
+	width: 100%;
+}
+.section-wrapper{
+	width: 25%;
+	float: left;
+	overflow: hidden;
+	background-color: #f1f4f9;
+
+}
+.section-wrapper .section{
+	padding: 10px;
+
+}
+.section-wrapper .section .show{
+	display: block;
+	height: 240px;
+	background-color:;
+	overflow: hidden;
+	text-decoration: none;
+}
+.section-wrapper .section .content{
+	width: 100%;
+	height: 90px;
+	background-color: #fff;
+	padding-top: 30px;
+}
+.section-wrapper .section .content a{
+	text-decoration: none;
+}
+.section-wrapper .section .content a h3{    
+	font-size: 24px;
+    font-weight: 900;
+    padding-left: 25px;
+    padding-bottom: 15px;
+    color: #000;
+}
+.section-wrapper .section .content a h3:hover{
+
+}
+.section-wrapper .section .content p{
+	color: #444;
+	padding-left: 25px;
+	margin-bottom: 25px;
+}
