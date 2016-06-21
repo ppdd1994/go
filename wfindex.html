@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>瀑布流</title>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding:0;
+	}
+	#main{
+		position: relative;
+	}
+	.box{
+		padding-top: 15px;
+		padding-left: 15px;
+		float: left;
+	}
+	.pic{
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		box-shaow:0 0 5px #ccc;
+	}
+	.pic img{
+		width: 165px;
+	}
+</style>
+</head>
+<body>
+	<div id="main">
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_01.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_02.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_03.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_04.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_05.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_06.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_07.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_01.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_02.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_04.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_011.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_012.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_013.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_014.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_015.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_016.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_017.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_05.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_06.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_07.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_01.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_02.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_04.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_011.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_012.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_013.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_014.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_015.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_016.jpg"/>
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/P_017.jpg"/>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+window.onload=function(){
+	waterfall('main','box');
+	var dataInt={"data":[{"src":"P_017.jpg"},{"src":"P_017.jpg"},{"src":"P_017.jpg"},{"src":"P_017.jpg"},{"src":"P_017.jpg"},{"src":"P_017.jpg"},{"src":"P_017.jpg"}]};
+	window.onscroll=function(){
+		if(checkss()){
+			var oParent=document.getElementById('main');
+			for (var i = 0; i < dataInt.data.length; i++) {
+				var obox=document.createElement('div');
+				var	opic=document.createElement('div');
+				var	oimg=document.createElement('img');
+				obox.className="box";
+				opic.className="pic";
+				oimg.src="images/"+dataInt.data[i].src;
+				oParent.appendChild(obox);
+				obox.appendChild(opic);
+				opic.appendChild(oimg);
+			};
+		waterfall("main","box");
+	    }
+	}
+}
+	function waterfall(parent,box){
+		var oParent=document.getElementById(parent),
+		    oBox=getClsName(oParent,box);
+		var oBoxW= oBox[0].offsetWidth,
+		 	col=Math.floor(document.documentElement.clientWidth/oBoxW),
+		 	 mainW=col*oBoxW;
+		 	oParent.style.cssText="width:"+mainW+"px;margin: 0 auto";	
+		var hArry=[];
+		for (var i = 0; i < oBox.length; i++) {
+			if(i<col){
+				hArry.push(oBox[i].offsetHeight);
+			}else{
+				var minH=Math.min.apply(null,hArry);
+				var index=getminHIndex(hArry,minH);
+				oBox[i].style.position="absolute";
+				oBox[i].style.left=index*oBoxW+"px";
+				oBox[i].style.top=minH+"px";
+				hArry[index]+=oBox[i].offsetHeight;			}
+		};
+	};
+
+	function getClsName(parent,cln){
+		var boxArr =new Array() ,
+			oLits= parent.getElementsByTagName("*");
+		for (var i = 0; i < oLits.length; i++) {
+			if(oLits[i].className==cln){
+				boxArr.push(oLits[i]);
+			}
+		};
+		return boxArr
+	};
+
+	function getminHIndex(arry,val){
+		for (var i in arry) {
+			if(arry[i]==val){
+				return i;
+			}
+		};
+	};
+
+	function checkss(){
+	var oParent=document.getElementById('main');
+	var	oBox=getClsName(oParent,'box');
+	var	lastIndex=oBox.length-1 ,
+		lastBox=oBox[lastIndex] ,
+		lastBoxH=oBox[lastIndex].offsetTop+Math.floor(oBox[lastIndex].offsetHeight/2) ,
+		scrollTop=document.documentElement.scrollTop || document.body.scrollTop ,
+		height =document.body.clientHeight ||document.documentElement.clientHeight;
+		return (lastBoxH<scrollTop+height)? true:false
+
+
+	}
+</script>	
+</body>
+</html>
