@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding:0;
+		}
+		.nav{
+			margin: 20px auto;
+			height: 40px;
+			width: 900px;
+		}
+		.nav ul{
+			list-style: none;
+		}
+		.nav li{
+			float: left;
+			margin: 0 2px;
+
+		}
+		a{
+			display: block;
+			padding: 0 10px;
+			text-decoration: none;
+			line-height: 40px;
+			width: 200px;
+			background: #ddd;
+			color: #666666;
+			text-align: center;
+
+		}
+		.wrap{
+			height: 0px;
+			width: 900px;
+			margin: 0 auto;
+			background-color: #333d4d;
+			color: white;
+			font-size: 18px;
+			overflow: hidden;
+		}
+		.nav-2{
+			height: 130px;
+			width: 500%;
+
+		}
+		.nav-2-list{
+			width: 20%;
+			text-align: center;
+			line-height: 110px;
+			float: left;
+		}
+		.close-btn{
+			border-bottom: 20px solid white;
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+			border-top: 0px;
+			width: 0px;
+			margin:  0 auto;
+			cursor: pointer;
+		}
+	</style>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+			<li><a href="#">首页</a></li>
+			<li><a href="#">课程大厅</a></li>
+			<li><a href="#">学习中心</a></li>
+			<li><a href="#">关于我们</a></li>
+		</ul>
+	</div>
+	<div class="wrap">
+		<div class="nav-2">
+			<div class="nav-2-list">这是第一帧</div>
+			<div class="nav-2-list">这是第二帧</div>
+			<div class="nav-2-list">这是第三帧</div>
+			<div class="nav-2-list">这是第四帧</div>
+		</div>
+		<div class="close-btn"></div>
+	</div>
+<script type="text/javascript">
+	$(function(){
+		$('.nav').on('click','li',function(){
+			var cur=$(this).index(),ml='-'+cur*100+'%';
+			if ($('.wrap').hasClass('active')) {
+				$('.nav-2').animate({marginLeft:ml});
+			} else{
+				$('.nav-2').css({marginLeft:ml});
+				$('.wrap').animate({height:'150px'}).addClass('active');
+			};
+			return false;
+		});
+		$('.close-btn').on('click',function(){
+			$('.wrap').animate({height:'0px'}).removeClass('active');
+		})
+	})
+
+</script>
+</body>
+</html>
